@@ -1,0 +1,257 @@
+-- Sius Hub powered by Sirius. Warning : Do not copy and re-name my script without my permission
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+local Window = Rayfield:CreateWindow({
+	Name = "Horrific Housing Hub",
+	LoadingTitle = "Horrific Housing Hub",
+	LoadingSubtitle = "By Sius",
+	ConfigurationSaving = {
+		Enabled = true,
+		FileName = "Big Hub"
+	},
+	KeySystem = true, -- Set this to true to use our key system
+	KeySettings = {
+		Title = "Horrific Housing",
+		Subtitle = "Key System",
+		Note = "Get key Here : https://discord.gg/3HsT6F4ZAw",
+		Key = "30974"
+	}
+})
+
+Rayfield:Notify("Loaded","Sius Hub has successfully loaded in",10010348543)
+
+Rayfield:Notify("Sius UI","Thank you for using Sius hub. Hope you having a great time using the script 😉 | Developer : Sius | UI by Sirius | | Verison 1.3",10010348543)
+
+Rayfield:Notify("Join our discord!","Join our discord server | https://discord.gg/RbFB2fp88V",10010348543)
+
+local Tab = Window:CreateTab("Infomation")
+local Section = Tab:CreateSection("announcement")
+local Paragraph = Tab:CreateParagraph({Title = "What's Sius Hub??", Content = "Just a script created by a person who just started coding. I will improve my coding skill once school test was ended!"})
+local Paragraph = Tab:CreateParagraph({Title = "What's new?", Content = "Version 1.3 :  We upgraded Token Exploit to another level! Now you no longer needed to press the button over and over again! | Added combat tab ( no feautes yet )"})
+local Paragraph = Tab:CreateParagraph({Title = "What happend to Sius Hub", Content = "October 1 20:01 2022 when Sius is testing the version 1.3 changes. the script couldn't load. Before the UI won't take we 2 hours to notice and solve the problem. we're very sorry "})
+local Section = Tab:CreateSection("UI")
+local Paragraph = Tab:CreateParagraph({Title = "What's the name of the ui that you're using currently", Content = "It called Rayfield Interface Suite made by Sirius. The UI looks clean and perfect. Why don't you try it?"})
+
+
+
+local Tab = Window:CreateTab("Character")
+local Section = Tab:CreateSection("Section 1")
+
+local Paragraph = Tab:CreateParagraph({Title = "Reset Character", Content = "Kill yourself once you press the Button"})
+
+local Button = Tab:CreateButton({
+	Name = "Reset Character",
+	Callback = function()
+		game.Players.LocalPlayer.Character.Humanoid.Health = 0-- Means The Character Health will turn to 0
+	end,
+})
+
+local Paragraph = Tab:CreateParagraph({Title = "Walkspeed", Content = "Change your walkspeed whatever you wanted to ( Limit : 100 )"})
+
+local Slider = Tab:CreateSlider({
+	Name = "Walkspeed",
+	Range = {16, 100},
+	Increment = 1,
+	Suffix = "Value",
+	CurrentValue = 16,
+	Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(s)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+	end,
+})
+
+local Paragraph = Tab:CreateParagraph({Title = "Jumppower", Content = "Change your jumppower whatever you wanted to ( Limit : 200 )"})
+
+local Slider = Tab:CreateSlider({
+	Name = "Jumppower",
+	Range = {40, 200},
+	Increment = 1,
+	Suffix = "Value",
+	CurrentValue = 40,
+	Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(s)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+	end,
+})
+
+local Paragraph = Tab:CreateParagraph({Title = "Set Health", Content = "You can change your Health whatever you wanted to ( Limit : 100 )"})
+
+local Slider = Tab:CreateSlider({
+	Name = "Set Health",
+	Range = {0, 100},
+	Increment = 1,
+	Suffix = "Health",
+	CurrentValue = 100,
+	Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(s)
+        game.Players.LocalPlayer.Character.Humanoid.Health = s
+	end,
+})
+
+local Paragraph = Tab:CreateParagraph({Title = "Future Plan", Content = "In the future, I'll add fly,noclip and even god mode inside here. Coming soon! ( I won't discontinue this project )"})
+
+
+        
+local Tab = Window:CreateTab("Visual")
+local Section = Tab:CreateSection("Section 1")
+
+local Paragraph = Tab:CreateParagraph({Title = "ESP", Content = "view all the player ( i will add turn off system soon )"})
+
+local Toggle = Tab:CreateToggle({
+	Name = "Esp",
+	CurrentValue = true,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+        local c = workspace.CurrentCamera
+local ps = game:GetService("Players")
+local lp = ps.LocalPlayer
+local rs = game:GetService("RunService")
+
+local function getdistancefc(part)
+    return (part.Position - c.CFrame.Position).Magnitude
+end
+
+local function esp(p,cr)
+    local h = cr:WaitForChild("Humanoid")
+    local hrp = cr:WaitForChild("HumanoidRootPart")
+
+    local text = Drawing.new("Text")
+    text.Visible = false
+    text.Center = true 
+    text.Outline = true 
+    text.Font = 2
+    text.Color = Color3.fromRGB(255,255,255)
+    text.Size = 13
+
+    local c1 
+    local c2 
+    local c3 
+
+    local function dc()
+        text.Visible = false
+        text:Remove()
+        if c1 then
+            c1:Disconnect()
+            c1 = nil 
+        end
+        if c2 then
+            c2:Disconnect()
+            c2 = nil 
+        end
+        if c3 then
+            c3:Disconnect()
+            c3 = nil 
+        end
+    end
+
+    c2 = cr.AncestryChanged:Connect(function(_,Value)
+        if not parent then
+            dc()
+        end
+    end)
+
+    c3 = h.HealthChanged:Connect(function(Value)
+        if (v<=0) or (h:GetState() == Enum.HumanoidStateType.Dead) then
+            dc()
+        end
+    end)
+
+    c1 = rs.RenderStepped:Connect(function(Value)
+        local hrp_pos,hrp_os = c:WorldToViewportPoint(hrp.Position)
+        if hrp_os then
+            text.Position = Vector2.new(hrp_pos.X,hrp_pos.Y)
+            text.Text = p.Name .. ' ('..tostring(math.floor(getdistancefc(hrp)))..' ms)'
+            text.Visible = true 
+        else
+            text.Visible = false 
+        end
+    end)
+end
+
+local function p_added(p)
+    if p.Character then
+        esp(p,p.Character)
+    end
+    p.CharacterAdded:Connect(function(cr)
+        esp(p,cr)
+    end)
+end
+
+
+for i,p in next, ps:GetPlayers() do 
+    if p ~= lp then
+        p_added(p)
+    end
+end
+
+ps.PlayerAdded:Connect(p_added)
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local Highlight = Instance.new("Highlight")
+Highlight.Name = "Highlight"
+function ApplyToCurrentPlayers()
+    for i,player in pairs(Players:GetChildren()) do 
+        repeat wait() until player.Character
+        if not player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+            local HighlightClone = Highlight:Clone()
+            HighlightClone.Adornee = player.Character
+            HighlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
+            HighlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+            HighlightClone.Name = "Highlight"
+        end
+    end
+end    
+RunService.Heartbeat:Connect(function(Value)
+    ApplyToCurrentPlayers()
+end)-- The function that takes place when the toggle is pressed
+    		-- The variable (Value) is a boolean on whether the toggle is true or false
+	end,
+})
+
+local Paragraph = Tab:CreateParagraph({Title = "Brightness", Content = "Change the brightness ( Doesn't work on other players ) "})
+
+local Slider = Tab:CreateSlider({
+	Name = "Brightness",
+	Range = {1, 100},
+	Increment = 1,
+	Suffix = "Brightness",
+	CurrentValue = 1,
+	Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(s)
+        game.Lighting.Brightness = s
+	end,
+})
+
+local Tab = Window:CreateTab("Shop")
+local Section = Tab:CreateSection("Section 1")
+
+local Paragraph = Tab:CreateParagraph({Title = "Free Item", Content = "Type a item name to purchase without using token ( limited/retired/outdated itme included )"})
+
+local Input = Tab:CreateInput({
+	Name = "Free Item ( outdated item included )",
+	PlaceholderText = "Name Here",
+	RemoveTextAfterFocusLost = false,
+	Callback = function(Text)
+		local args = {
+            [1] = 0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001,
+            [2] = Text
+        }
+        
+        game:GetService("ReplicatedStorage").ShopPurchase:FireServer(unpack(args))-- The function that takes place when the input is changed
+    		-- The variable (Text) is a string for the value in the text box
+	end,
+})
+
+local Paragraph = Tab:CreateParagraph({Title = "Token Exploit", Content = "Recive Token without pressing it over and over again"})
+
+local Button = Tab:CreateButton({
+	Name = "Token Exploit",
+	Callback = function()
+        while wait() do
+		game:GetService("ReplicatedStorage").LoginRewards:FireServer()
+        end
+	end,
+})
+
+-- Sius Hub : Rayfield Interface Suite Edition, 252 Line of Codes, Created in October 30 2022 , Sius , Lua Code , Exploit , Hub
