@@ -13,7 +13,7 @@ local Window = Rayfield:CreateWindow({
 	KeySettings = {
 		Title = "Horrific Housing",
 		Subtitle = "Key System",
-		Note = "Get key Here : https://discord.gg/3HsT6F4ZAw",
+		Note = "Welcome to Sius Hub! Join our discord to get key ! https://discord.gg/3HsT6F4ZAw. Don't leave the server after getting the key. We'll change the key monthly",
 		Key = "30974"
 	}
 })
@@ -28,7 +28,9 @@ local Tab = Window:CreateTab("Infomation")
 local Section = Tab:CreateSection("announcement")
 local Paragraph = Tab:CreateParagraph({Title = "What's Sius Hub??", Content = "Just a script created by a person who just started coding. I will improve my coding skill once school test was ended!"})
 local Paragraph = Tab:CreateParagraph({Title = "What's new?", Content = "Version 1.3 :  We upgraded Token Exploit to another level! Now you no longer needed to press the button over and over again! | Added combat tab ( no feautes yet )"})
-local Paragraph = Tab:CreateParagraph({Title = "What happend to Sius Hub", Content = "October 1 20:01 2022 when Sius is testing the version 1.3 changes. the script couldn't load. Before the UI won't take we 2 hours to notice and solve the problem. we're very sorry "})
+local Paragraph = Tab:CreateParagraph({Title = "Version 1.4 delay", Content = "We have to delay version 1.4 because of coding issue. we sincerely apologize ☹"})
+local Label = Tab:CreateLabel("More infomation in our discord server | https://discord.gg/3HsT6F4ZAw")
+
 local Section = Tab:CreateSection("UI")
 local Paragraph = Tab:CreateParagraph({Title = "What's the name of the ui that you're using currently", Content = "It called Rayfield Interface Suite made by Sirius. The UI looks clean and perfect. Why don't you try it?"})
 
@@ -92,7 +94,7 @@ local Paragraph = Tab:CreateParagraph({Title = "Future Plan", Content = "In the 
 
 
         
-local Tab = Window:CreateTab("Visual")
+local Tab = Window:CreateTab("Visuals")
 local Section = Tab:CreateSection("Section 1")
 
 local Paragraph = Tab:CreateParagraph({Title = "ESP", Content = "view all the player ( i will add turn off system soon )"})
@@ -209,7 +211,10 @@ end)-- The function that takes place when the toggle is pressed
 	end,
 })
 
-local Paragraph = Tab:CreateParagraph({Title = "Brightness", Content = "Change the brightness ( Doesn't work on other players ) "})
+local Paragraph = Tab:CreateParagraph({Title = "Warning", Content = "Future Project. Not in the UI"})
+local Paragraph = Tab:CreateParagraph({Title = "X-ray", Content = "Make surrounding obstacles invisible"})
+
+local Paragraph = Tab:CreateParagraph({Title = "Brightness", Content = "Change the game brightness ( Use it when the you're surrounded by darkness "})
 
 local Slider = Tab:CreateSlider({
 	Name = "Brightness",
@@ -243,10 +248,10 @@ local Input = Tab:CreateInput({
 	end,
 })
 
-local Paragraph = Tab:CreateParagraph({Title = "Token Exploit", Content = "Recive Token without pressing it over and over again"})
+local Paragraph = Tab:CreateParagraph({Title = "LoginReward Exploit", Content = "You'll get Login Rewards Infinite times by clicking the button ( Rejoin to stop the Exploit )."})
 
 local Button = Tab:CreateButton({
-	Name = "Token Exploit",
+	Name = "LoginReward Exploit",
 	Callback = function()
         while wait() do
 		game:GetService("ReplicatedStorage").LoginRewards:FireServer()
