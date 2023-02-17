@@ -44,7 +44,7 @@ Rayfield:Notify({
 
 local Tab = Window:CreateTab("What's new")
 local Section = Tab:CreateSection("announcement")
-local Paragraph = Tab:CreateParagraph({Title = "Version 1.5.1", Content = "Changed Free Item to Dropdown Elements | Changed Free Item to Dropdown Elements | Temporary removed Free coin due to a bunch Error and Bug | Fixed some bugs."})
+local Paragraph = Tab:CreateParagraph({Title = "Version 1.5.1", Content = "Changed Free Item to Dropdown Elements | Changed Free Item to Dropdown Elements | Temporary removed Infinite Coin | Fixed some bugs."})
 local Label = Tab:CreateLabel("More infomation in our discord server | https://discord.gg/3HsT6F4ZAw")
 
 local Tab = Window:CreateTab("Character")
