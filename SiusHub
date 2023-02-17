@@ -1,13 +1,12 @@
--- Sius Hub powered by Sirius. Warning : Do not copy and re-name my script without my permission
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
 local Window = Rayfield:CreateWindow({
 	Name = "Horrific Housing Hub",
-	LoadingTitle = "Sius Hub v4",
+	LoadingTitle = "Sius Hub",
 	LoadingSubtitle = "By Sius",
 	ConfigurationSaving = {
 		Enabled = true,
-		FileName = "Big Hub"
+		FileName = "Sius Hub"
 
 	},
     Discord = {
@@ -26,22 +25,27 @@ local Window = Rayfield:CreateWindow({
 	}
 })
 
-Rayfield:Notify("Loaded","Sius Hub v4 has successfully loaded in",10010348543)
 
-Rayfield:Notify("Sius UI","Thank you for using Sius Hub. Hope you having a great time using the script 😉 | Developer : Sius | UI by Sirius | | Verison 1.5",10010348543)
+Rayfield:Notify({
+   Title = "Loaded",
+   Content = "Welcome back to Sius Hub version 1.5.1",
+   Duration = 6.5,
+   Image = 10010348543,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Close",
+         Callback = function()
+         print("Successful loaded Sius Hub 1.5.1. Created by Sius")
+      end
+   },
+},
+})
 
-Rayfield:Notify("Join our discord!","Join our discord server | https://discord.gg/RbFB2fp88V",10010348543)
 
-local Tab = Window:CreateTab("Infomation")
+local Tab = Window:CreateTab("What's new")
 local Section = Tab:CreateSection("announcement")
-local Paragraph = Tab:CreateParagraph({Title = "What's Sius Hub??", Content = "Just a script created by a person who just started coding. I will improve my coding skill once school test was ended!"})
-local Paragraph = Tab:CreateParagraph({Title = "What's new?", Content = "Version 1.5 : Added Others Tab | Added FOV slider,Infinite Jump and new Teleportation Tap!"})
-local Paragraph = Tab:CreateParagraph({Title = "End of Sius Hub?", Content = "Version 1.5 is the last update for Sius Hub. We will update sius hub after completed Sionix Script"})
-
+local Paragraph = Tab:CreateParagraph({Title = "Version 1.5.1", Content = "Changed Free Item to Dropdown Elements | Changed Free Item to Dropdown Elements | Temporary removed Free coin due to a bunch Error and Bug | Fixed some bugs."})
 local Label = Tab:CreateLabel("More infomation in our discord server | https://discord.gg/3HsT6F4ZAw")
-
-local Section = Tab:CreateSection("UI")
-local Paragraph = Tab:CreateParagraph({Title = "What's the name of the ui that you're using currently", Content = "It called Rayfield Interface Suite made by Sirius. The UI looks clean and perfect. Why don't you try it?"})
 
 local Tab = Window:CreateTab("Character")
 local Section = Tab:CreateSection("Section 1")
@@ -530,40 +534,25 @@ local Button = Tab:CreateButton({
 local Tab = Window:CreateTab("Shop")
 local Section = Tab:CreateSection("Section 1")
 
-local Paragraph = Tab:CreateParagraph({Title = "Free Item", Content = "Type a item name to purchase without using token ( limited/retired/outdated itme included ) | Working Item name [ EggPets,Ornament,Furniture,HouseChest,Spooky,HeartBalloons,WinterChest,Easter,Summer2,Autumn,LunarBundle ]"})
-
-local Input = Tab:CreateInput({
-	Name = "Free Item ( outdated item included )",
-	PlaceholderText = "Name Here",
-	RemoveTextAfterFocusLost = false,
-	Callback = function(Text)
-		local args = {
-            [1] = 0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001,
-            [2] = Text
-        }
-        
-        game:GetService("ReplicatedStorage").ShopPurchase:FireServer(unpack(args))-- The function that takes place when the input is changed
-    		-- The variable (Text) is a string for the value in the text box
-	end,
+local Dropdown = Tab:CreateDropdown({
+   Name = "Free item",
+   Options = {"EggPets","Ornament","Furniture","HouseChest","Spooky","HeartBalloons","interChest","Spooky","HeartBalloons","WinterChest","Easter","Summer2","Autumn","LunarBundle"},
+   CurrentOption = "None",
+   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Options)
+    local args = {
+        [1] = 0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001,
+        [2] = Options
+    }
+    
+    game:GetService("ReplicatedStorage").ShopPurchase:FireServer(unpack(args))
+   end,
 })
-
-local Paragraph = Tab:CreateParagraph({Title = "LoginReward Exploit", Content = "You'll get Login Rewards Infinite times by clicking the button ( Rejoin to stop the Exploit )."})
-
-local Button = Tab:CreateButton({
-	Name = "LoginReward Exploit",
-	Callback = function()
-        while wait() do
-		game:GetService("ReplicatedStorage").LoginRewards:FireServer()
-        end
-	end,
-})
-
-
 
 local Tab = Window:CreateTab("Others")
 local Section = Tab:CreateSection("Section 1")
 
-local Paragraph = Tab:CreateParagraph({Title = "Others", Content = "Hey. We know that our script wasn't that powerful. So we added some other script that's 100% safe"})
+local Paragraph = Tab:CreateParagraph({Title = "Others", Content = "Hey. We know that our script wasn't powerful enough. So we recommend you some other script that's 100% safe"})
 
 local Button = Tab:CreateButton({
 	Name = "infinite Yield | Edge",
@@ -627,4 +616,4 @@ local Button = Tab:CreateButton({
 })
 
 
--- Sius Hub : Rayfield Interface Suite Edition, 630 Line of Codes, Created in October 30 2022 , Sius , Lua Code , Exploit , Hub
+-- Sius Hub : Rayfield Interface Suite Edition, 630 Line of Codes, Created in October 30 2022 , Sius
