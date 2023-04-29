@@ -1,6 +1,3 @@
-if game.PlaceId == 4913581664 then
-    loadstring(game:HttpGet('https://t.ly/LynxSource'))()
-    
 if game.PlaceId == 263761432 then
     loadstring(game:HttpGet('https://t.ly/LynxSources'))()
     end
